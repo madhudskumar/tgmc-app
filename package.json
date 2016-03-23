@@ -6,11 +6,27 @@
 		"start": "node app.js"
 	},
 	"dependencies": {
-		"express": "4.12.x",
+		"body-parser": "^1.14.2",
+        "cookie-parser": "^1.4.1",
+        "errorhandler": "^1.4.2",
+        "express": "^4.13.3",
+        "express-session": "^1.13.0",
+        "helmet": "^1.1.0",
+        "jade": "^1.11.0",
+        "kerberos": "0.0.18",
+        "mongoose": "^4.4.2",
+        "morgan": "^1.6.1",
+        "multer": "^1.1.0",
+        "node-gyp": "^3.2.1",
+        "passport": "^0.3.2",
+        "passport-local": "^1.0.0",
+        "serve-favicon": "^2.3.0",
+        "serve-static": "^1.10.1",
 		"cfenv": "1.0.x"
 	},
 	"repository": {},
 	"engines": {
-		"node": "0.12.x"
+		"node": "5.3.x",
+        "npm": "3.3.x"
 	} 
 }

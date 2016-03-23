@@ -1,0 +1,186 @@
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+html{
+    background: lawngreen;
+    overflow: auto;
+}
+
+.uk-offcanvas.uk-active .uk-offcanvas-bar{
+    background: transparent;
+    color: black;
+}
+
+.uk-nav-offcanvas>.uk-open>a, html:not(.uk-touch) .uk-nav-offcanvas>li>a:focus, html:not(.uk-touch){
+    color:black;
+    font-size:40px;
+}
+
+.uk-nav-offcanvas>li>a{
+    padding:20px 0 20px 0;
+}
+
+.uk-nav, .uk-nav ul{
+    padding:20px 0 5px 0;
+    color: black;
+}
+
+.uk-padding-12{
+    padding: 12px;
+}
+
+.uk-nav-offcanvas>li>a{
+    color:black;
+}
+
+.main{
+    padding:10px;
+}
+
+.uk-navbar{
+    background-color: white;
+    height:60px;
+}
+
+.view{
+    background:white;
+}
+
+.reg{
+    width:100%;
+    height:auto;
+    padding-top:60px;
+    color:white;
+    text-align:center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size:60px;
+}
+
+.regHeader{
+    width:100%;
+    background:black;
+    height:200px
+
+}
+
+#main{
+    background: url("../images/_original.jpg") no-repeat top right;
+    background-size: cover;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.head{
+    font-family:'Kaushan Script', cursive;
+    color:lawngreen;
+    font-size: 40px;
+    margin-top: 7px;
+}
+
+.head:hover{
+    color: lawngreen;
+}
+
+.regBtn, .regBtn:hover, .regBtn:active{
+    background: transparent;
+    color: lawngreen;
+    font-size: 60px;
+    font-weight:bolder;
+    padding-top:60px;
+    margin-top:12px;
+}
+
+.regBtn:hover{
+    color:black;
+    background: lawngreen;
+}
+
+#brand{
+    margin:20px auto;
+}
+
+#bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: black;
+}
+
+#heading{
+    margin:auto 12px;
+}
+
+.hea{
+    color:lawngreen;
+    text-align:left;
+    font-family: "Lobster", cursive;
+    font-size:50px;
+    padding-top: 20px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+.team{
+    margin:20px;
+    background: #eaeaec;
+}
+
+.team:hover{
+    -webkit-box-shadow: 0 2px 7px grey;
+    -moz-box-shadow: 0 2px 7px grey;
+    box-shadow: 0 0px 7px -2px grey;
+}
+
+.uk-margin-top-0{
+    margin-top:0;
+}
+
+.refresh-view{
+    position:absolute;
+    top:29px;
+    right:69px;
+    color:lawngreen;
+    margin:auto;
+    font-size:100%
+}
+
+@media screen and (max-width:600px) {
+    .refresh-view{
+        font-size:300%;
+    }
+    .regBtn, .reg, .regBtn:active{
+        font-size: 1.5em;
+        padding-top:30px;
+    }
+    .tm-name{
+        font-size: 1.5em;
+        padding-top:0;
+    }
+
+    #table-fixtures-1,#table-fixtures-2{
+        font-size: 0.6em;
+    }
+
+    .reg{
+        padding-top:30px;
+
+    }
+
+    .regHeader {
+        height:100px;
+    }
+
+    .hea{
+        font-size:40px;
+    }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none;
+}

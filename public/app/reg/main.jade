@@ -1,0 +1,27 @@
+div#reg
+    div.regHeader
+        h1.reg.uk-vertical-align-middle.uk-container.uk-container-center(style='') About Us
+
+    div.uk-width-1-1.contacts
+        p(style='text-align:center;padding-top:20px;font-size:20px') contact any of us
+
+    div.contact.uk-grid.uk-container.uk-container-center(style='padding:50px' ng-repeat='cts in contacts')
+        div.img.uk-width-1-4(style='margin:auto auto;padding:0')
+            img(ng-src='{{cts.img}}' style='height:56px:width:56px;border-radius:100%;margin:auto;')
+
+        div.name.uk-width-3-4(style='margin:auto')
+            p {{cts.name}}
+            hr
+            p
+                a(ng-href='tel:{{cts.phn}}') {{cts.phn}}
+
+
+
+|<style>
+| .uk-navbar{
+|     background: brown;
+| }
+|.regHeader{background:brown}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|<\style>

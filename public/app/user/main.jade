@@ -1,0 +1,24 @@
+div#login(style='text-align:center').uk-width-1-1
+    div
+        h1 LOGIN
+
+div#loginFrm(style='padding:5%;padding-bottom:1%')
+    div(style='background:white;margin:auto auto;font-size:15px;text-align:center;padding:20px;height:100%').uk-container.uk-container-center
+        form(name='LoginForm').uk-form
+            input(type='text' ng-model='username' ,required placeholder='username')
+            br
+            br
+            div.uk-form-password
+                input(type='password' ng-model='password' ,required placeholder='password')
+
+div.uk-width-1-1(style='text-align:center')
+    button.uk-button.uk-flex-center(ng-click='authUser(username, password)' ng-disabled='LoginForm.$invalid', style='text-align:center;font-size:20px;margin:auto;padding:12px') LOGIN
+
+|<style>
+| .uk-navbar{
+|     background:#f2f2f4;
+| }
+|.view{padding:3%}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|<\style>

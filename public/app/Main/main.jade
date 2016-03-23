@@ -1,0 +1,45 @@
+div#main
+    div(ng-controller='bHeaderCtrl')
+        nav.uk-navbar(style='padding-top:12px')
+            a.uk-navbar-brand.brand(ng-href='/').head bpl
+            div.uk-navbar-flip
+                a.uk-navbar-toggle(onclick="jQuery.UIkit.offcanvas.show('#sidebar');" data-uk-offcanvas style='font-size:34px;padding-top:12px')
+
+
+
+    div#mainHeader.uk-container.uk-container-center
+        div#heading.uk-container-center.uk-container(style='color:lawngreen')
+            p.hea BIET
+            p.hea PREMIER
+            p.hea LEAGUE - 8
+
+    section#bottom.uk-width-1-1(style='background:transparent;')
+        div(style='background:black')
+            div#reg
+                div.uk-container.uk-container-center.uk-grid(style='padding-top:12px;')
+                    a.regBtn.uk-button.uk-width-1-2(ng-href='/fixtures' style='text-align:right;border-right:2px solid;margin:auto;padding:12px') FIXTURES
+                    a.regBtn.uk-button.uk-width-1-2(ng-href='/teams' style='text-align:left;margin:auto;padding:12px') TEAMS
+
+            hr.uk-container.uk-container-center(style='border:2px solid lawngreen')
+
+            div#stat(style='color:lawngreen;padding:12px')
+                p(style="text-align:center;font-weight:bolder") STARTED ON 15 - FEB - 2015
+                div(style='text-align:center')
+                    p(style='color:lawngreen') BIET CRICKET GROUND
+
+
+script.
+    $("#main").height($(window).height() / 1.025);
+
+    $(window).resize(function () {
+        $("#main").height($(window).height() / 1.025)
+    })
+
+|<style>
+|.header{
+|    display:none;
+|}
+|.uk-navbar{background:transparent;}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|<\style>

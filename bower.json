@@ -1,0 +1,19 @@
+{
+  "name": "bpl",
+  "description": "bpl landing page",
+  "main": "index.js",
+  "authors": [
+    "mkds <madhudskumar@live.in>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "uikit": "^2.24.3",
+    "angular-toArrayFilter": "^1.0.1",
+    "ngprogress": "^1.1.2"
+  }
+}

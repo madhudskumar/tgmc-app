@@ -1,0 +1,96 @@
+div
+    div
+        h1.reg.uk-vertical-align-middle.uk-container.uk-container-center(style='color:black') Update Match Fixtures
+
+div.uk-container.uk-container-center(style='text-align:center;font-size:20px;')
+    label all
+    input.uk-checkbox(type='checkbox' ng-model='showAll' ng-value='false')
+
+div.uk-container.uk-container-center.team-container(style='background:#f2f2f4;')
+    table.uk-table(style='text-align:left;font-size:20px;margin-top:20px')
+        thead
+            tr.uk-grid
+                th.uk-width-1-10
+                    strong #
+                td.uk-width-3-10
+                    strong MATCH
+                td.uk-width-3-10
+                    strong
+                td.uk-width-3-10
+                    strong
+
+        tbody
+            tr#table-fixtures.uk-grid(ng-repeat='match in matches' ng-hide='!match.teamOne.qualifiedForNext || !match.teamTwo.qualifiedForNext' ng-show='showAll')
+                td.uk-width-1-10 {{$index + 1}}
+                td.uk-width-3-10
+                    div(ng-hide='(!match.teamOne.qualifiedForNext || !match.teamTwo.qualifiedForNext)')
+                        | <p class='uk-margin-top-0'> {{match.teamOne.teamName | uppercase}} <strong> VS </strong> {{match.teamTwo.teamName | uppercase}} </p>
+                    div(ng-show='!match.teamOne.qualifiedForNext || !match.teamTwo.qualifiedForNext')
+                        | <p class='uk-margin-top-0' ng-show='match.teamOne.qualifiedForNext' > <strong>{{match.teamOne.teamName | uppercase}}</strong> <i> - WON!</i> </p>
+                        | <p class='uk-margin-top-0' ng-show='match.teamTwo.qualifiedForNext' > <strong>{{match.teamTwo.teamName | uppercase}}</strong> <i> - WON!</i> </p>
+                td.uk-width-2-10
+                    div
+                        p {{match.matchDate | date:'EEE, d-MMM-yyyy'}}
+
+                td.uk-width-2-10
+                    div
+                        p {{match.matchTime | date:'h:mm a'}}
+
+                td.uk-width-1-10
+                    div
+                        button.uk-button.ut(ng-click='openEdit(match, $index)' style='background:lightgreen')
+                            i.uk-icon-pencil
+
+                td.uk-width-1-10
+                    div
+                        button.uk-button.ut(ng-click='deleteMatch(match, $index)' ng-disabled='!match.teamOne.qualifiedForNext || !match.teamTwo.qualifiedForNext' style='background:pink')
+                            i.uk-icon-close
+
+div#modal.uk-modal
+    div.uk-container-center.uk-modal-dialog.uk-modal-dialog-lightbox(style='padding:20px;background:white')
+        h1.uk-h1(style='text-align:center') {{curMatch.teamOne.teamName | uppercase}} v/s {{curMatch.teamTwo.teamName | uppercase}}
+
+        form(name='matchInfoForm' style='text-align:center;font-size:14px').uk-form
+            div
+                label.uk-padding-12
+                    strong Team 1
+                select(ng-model='curMatch.teamOne.teamName', required)
+                    option(ng-repeat='team in teams | toArray:false | filter:{qualifiedForNext:true}' value='{{team.teamName}}') {{team.teamName}}
+
+            br
+            div
+                label.uk-padding-12
+                    strong Team 2
+                select(ng-model='curMatch.teamTwo.teamName', required)
+                    option(ng-repeat='team in teams | toArray:false | filter:{qualifiedForNext:true}' value='{{team.teamName}}') {{team.teamName}}
+            br
+            br
+            label.uk-padding-12
+                strong Round
+            select(ng-model='curMatch.round', required)
+                option(ng-repeat='option in round' value='{{option.name}}') {{option.name}}
+
+
+            div.uk-container-center.uk-container(style='text-align:center')
+                hr(style='width:50%;margin:12px auto')
+                div.uk-form-row
+                    label.uk-form-label Date
+                    input.uk-form-controls(type='date' ng-model='curMatch.newMatchDate' ,required placeholder='Register Date')
+                br
+                div.uk-form-row
+                    label.uk-form-label Time
+                    input.uk-form-controls(type='time' ng-model='curMatch.newMatchTime' ,required placeholder='Play Time')
+            div
+                button.uk-button(ng-disabled='matchInfoForm.$invalid' ng-click='updateMatch(curMatch)' style='font-size:20px') update
+
+
+|<style>
+| .view{background:#f2f2f4;}
+| .uk-navbar{
+|     background:#f2f2f4;
+| }
+|.regHeader{background:purple}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|.ut{font-size:1.5em;border-radius:5%;}
+|<\style>

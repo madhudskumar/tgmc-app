@@ -1,0 +1,19 @@
+div.header(ng-controller='bHeaderCtrl')
+    nav.uk-navbar(style='padding-top:12px')
+        a.uk-navbar-brand.brand(ng-href='/').head bpl
+        div.uk-navbar-flip
+            a.uk-navbar-toggle(onclick="jQuery.UIkit.offcanvas.show('#sidebar');" data-uk-offcanvas style='font-size:34px;padding-top:12px')
+
+div#sidebar.uk-offcanvas
+    div.uk-offcanvas-bar.uk-offcanvas-bar-flip(onclick="jQuery.UIkit.offcanvas.hide();$('body').height($(window).height());")
+        ul.uk-nav.uk-nav-offcanvas(data-uk-nav)
+            li
+                a(ng-href='/fixtures' style='padding-left:12px') FIXTURES
+            li
+                a(ng-href='/teams' style='padding-left:12px') TEAMS
+            li
+                a(ng-href='/rules' style='padding-left:12px') RULES
+            li
+                a(ng-href='/about' style='padding-left:12px') ABOUT US
+        strong.uk-vertical-align-middle(style='text-align:center;font-size:17px;margin:0 15px;')
+                small &copy; 2016 mkds

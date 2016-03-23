@@ -1,0 +1,47 @@
+div.refresh-view
+    i.uk-icon-refresh(ng-hide="hideBtn" style='font-size:100%;' ng-click="refreshView()")
+    i.uk-icon-refresh.uk-icon-spin(ng-show="hideBtn" style='font-size:100%;')
+div#gallery
+    div.regHeader
+        h1.reg.uk-vertical-align-middle.uk-container.uk-container-center(style='') TEAMS
+
+div.uk-container.uk-container-center.team-container(style='background:#f2f2f4')
+    div.team(ng-repeat="team in teams | toArray:false | orderBy:'ScoreTotal':true" ng-hide='!team.qualifiedForNext'  style='padding:15px;background:white')
+        div.uk-grid.uk-width-1-1
+            h1.uk-h1.uk-width-4-5.tm-name(style='text-align:left') {{team.teamName | uppercase}}
+            button.uk-button(style='margin:auto 0 auto auto;background:transparent' ng-click='openModal(team)')
+                i.uk.uk-icon-ellipsis-h
+
+        hr
+
+        div.uk-width-1-1(style='text-align:left')
+            p.uk-h5 BRANCH  : {{team.branch | uppercase}}
+            p.uk-h5 CAPTAIN : {{team.teamCaptain | uppercase}}
+            //p.uk-h5 SCORE: {{team.ScoreForThisRound}} runs
+            p.uk-h5 SCORE(T): {{team.ScoreTotal}} runs
+
+
+div#modal.uk-modal
+    div.uk-container-center.uk-modal-dialog.uk-modal-dialog-lightbox(style='padding:20px;background:white')
+        h1.uk-h1 {{curTeam.teamName}}
+        p.uk-h5 {{team.branch | uppercase}}
+
+        hr
+
+        p.uk-h5
+            strong {{curTeam.teamCaptain}}
+        p.uk-h5(ng-repeat='player in curTeam.players') {{player.name}}
+
+        hr
+        //p.uk-h5 SCORE   : {{curTeam.ScoreForThisRound}} runs
+        p SCORE(T): {{curTeam.ScoreTotal}} runs
+
+|<style>
+| .view{background:#f2f2f4;}
+| .uk-navbar{
+|     background:purple;
+| }
+|.regHeader{background:purple}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|<\style>

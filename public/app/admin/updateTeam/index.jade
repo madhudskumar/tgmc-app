@@ -1,0 +1,60 @@
+div
+    div
+        h1.reg.uk-vertical-align-middle.uk-container.uk-container-center(style='color:black') TEAMS
+        form.uk-form(style='text-align:center;font-size:20px')
+            div
+                label(style='padding:12px') order by
+                select(ng-model='order' style='font-size:15px')
+                    option(value='teamName') name
+                    option(value='branch') branch
+                    option(value='ScoreTotal') score
+div.uk-container.uk-container-center.team-container(style='background:#f2f2f4')
+    div.team(ng-repeat="team in teams | toArray:false | orderBy:order:true" ng-click='openEdit(team, $index)'   style='padding:15px;background:white')
+        div.uk-grid.uk-width-1-1
+            h1.uk-h1.uk-width-4-5(style='text-align:left') {{team.teamName | uppercase}}
+
+
+div#modal.uk-modal
+    div.uk-container-center.uk-modal-dialog.uk-modal-dialog-lightbox(style='padding:20px;background:white')
+        h1.uk-h1 {{curTeam.teamName}}
+
+        form(name='teamInfoForm' style='text-align:center;font-size:14px').uk-form
+            legend team info
+
+            div(style='padding:12px')
+                label(for='score' style='padding:12px') Score(This Match)
+                input#score(type='number' ng-model='curTeam.ScoreForThisRound' placeholder='score' ,required)
+
+            div(style='padding:12px')
+                label(style='padding:12px') Qualified For Next
+                div
+                    label(style='padding:12px') yes
+                    input(type='radio' ng-model='curTeam.qualifiedForNext' name='qualify' ng-value='true' required )
+                    label(style='padding:12px') nope
+                    input(type='radio' ng-model='curTeam.qualifiedForNext' name='qualify' ng-value='false' required)
+
+            div
+                button.uk-button(ng-disabled='teamInfoForm.$invalid' ng-click='updateTeam(curTeam)' style='font-size:20px') update
+
+
+        hr
+
+        form(name='TotalScoreForm' style='text-align:center;font-size:14px').uk-form
+            legend total Score
+
+            div(style='padding:12px')
+                label(for='totalScore' style='padding:12px') Score(T)
+                input#totalScore(type='number' ng-model='curTeam.ScoreTotal' placeholder='Total Score' ,required)
+
+            div
+                button.uk-button.uk-primary(ng-disabled='TotalScore.$invalid' ng-click='updateTotalScore(curTeam)' style='font-size:20px') update
+
+|<style>
+| .view{background:#f2f2f4;}
+| .uk-navbar{
+|     background:#f2f2f4;
+| }
+|.regHeader{background:purple}
+|.uk-navbar-toggle{color:lawngreen;}
+|.uk-navbar-toggle:hover{color:lawngreen;}
+|<\style>

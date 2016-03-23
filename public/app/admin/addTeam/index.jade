@@ -1,0 +1,41 @@
+div.uk-width-1-1(style='text-align:center')
+    h1.uk-h1.uk-align-center ADD NEW TEAM
+    hr.uk-container-center.uk-container
+
+div.uk-container-center
+    div.uk-align-center
+        form(name='addTeamForm' style='text-align:center;font-size:14px').uk-form
+            input(type='text' ng-model='team.teamName' ,required placeholder='Team Name')
+            br
+            br
+            input(type='text' ng-model='team.captain' ,required placeholder='captain')
+            br
+            br
+            select(ng-model='team.branch', required)
+                option(ng-repeat='option in options' value='{{option.name}}') {{option.name}}
+
+
+            div.uk-container.uk-container-center(style='padding:20px')
+                h4.uk-h4 PLAYERS
+                hr
+                input(type='text' ng-model='team.player[0].name' ,required placeholder='player-2')
+                br
+                br
+                input(type='text' ng-model='team.player[1].name' ,required placeholder='player-3')
+                br
+                br
+                input(type='text' ng-model='team.player[2].name' ,required placeholder='player-4')
+                br
+                br
+                input(type='text' ng-model='team.player[3].name' ,required placeholder='player-5')
+                br
+                br
+                input(type='text' ng-model='team.player[4].name' ,required placeholder='player-6')
+
+            div.uk-container-center.uk-container
+                hr
+                input(type='date' ng-model='team.regDate' ,required placeholder='Register Date')
+
+        div.uk-container-center.uk-container(style='text-align:center;padding:20px')
+            hr
+            button.uk-button(ng-disabled='addTeamForm.$invalid' ng-click='addTeamToDB(team)') ADD TEAM

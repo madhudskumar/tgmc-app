@@ -1,0 +1,40 @@
+div.uk-width-1-1(style='text-align:center')
+    h1.uk-h1.uk-align-center ADD A FIXTURE
+    hr.uk-container-center.uk-container
+
+div.uk-container-center
+    div.uk-align-center
+        form(name='addMatchForm' style='text-align:center;font-size:14px').uk-form.uk-form-stacked
+            div
+                label.uk-padding-12
+                    strong Team 1
+                select(ng-model='match.teamOne', required)
+                    option(ng-repeat='team in teams | toArray:false | filter:{qualifiedForNext:true}' value='{{team}}') {{team.teamName}}
+
+            br
+            div
+                label.uk-padding-12
+                    strong Team 2
+                select(ng-model='match.teamTwo', required)
+                    option(ng-repeat='team in teams | toArray:false | filter:{qualifiedForNext:true}' value='{{team}}') {{team.teamName}}
+            br
+            br
+            label.uk-padding-12
+                strong Round
+            select(ng-model='match.round', required)
+                option(ng-repeat='option in round' value='{{option.name}}') {{option.name}}
+
+
+            div.uk-container-center.uk-container(style='text-align:center')
+                hr(style='width:50%;margin:12px auto')
+                div.uk-form-row
+                    label.uk-form-label Date
+                    input.uk-form-controls(type='date' ng-model='match.matchDate' ,required placeholder='Register Date')
+                br
+                div.uk-form-row
+                    label.uk-form-label Time
+                    input.uk-form-controls(type='time' ng-model='match.matchTime' ,required placeholder='Play Time')
+        div.uk-container-center.uk-container(style='text-align:center;padding:20px')
+            button.uk-button(ng-disabled='addMatchForm.$invalid' ng-click='addMatch(match)') ADD TEAM
+
+div#err(style='background:red').width-1-1
