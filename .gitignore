@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 .idea
 node_modules
 =======
+=======
+>>>>>>> 94b26d932a73b1cdecdca2e8575cb99cb5928b5d
 # Logs
 logs
 *.log
@@ -33,4 +36,8 @@ node_modules
 .npm
 
 # Optional REPL history
+<<<<<<< HEAD
 .node_repl_history
+=======
+.node_repl_history
+>>>>>>> 94b26d932a73b1cdecdca2e8575cb99cb5928b5d
