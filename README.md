@@ -31,3 +31,5 @@ As technology advances, more people are on the internet. Hence, we came up with 
 do ```npm install```
 and ```node server.js```
 in the shell and checkout the browser at [http//localhost:7777](http//localhost:7777)
+
+licenced under *APACHE 2.0*
