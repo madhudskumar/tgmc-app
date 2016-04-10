@@ -26,3 +26,8 @@ As technology advances, more people are on the internet. Hence, we came up with 
   •	Auto-scaling
   •	Monitoring and Analytics
   •	Mobile Client Access
+
+#####TO RUN
+do ```npm install```
+and ```node server.js```
+in the shell and checkout the browser at [http//localhost:7777](http//localhost:7777)
